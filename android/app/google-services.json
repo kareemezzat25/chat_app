@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "128896874127",
+    "project_id": "chat-app-a6548",
+    "storage_bucket": "chat-app-a6548.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:128896874127:android:46c87932e32114892262fa",
+        "android_client_info": {
+          "package_name": "com.example.chat_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA26CkWplYO3iHVvMR5t8KnzIa01Ct83U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
