@@ -4,13 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 class CustomTextField extends StatelessWidget {
   String labelText;
-  String hintText;
   TextEditingController controller;
   IconData prefixIcon;
   CustomTextField({
     super.key,
     required this.labelText,
-    required this.hintText,
     required this.controller,
     required this.prefixIcon,
   });
@@ -26,12 +24,7 @@ class CustomTextField extends StatelessWidget {
           fontWeight: FontWeight.w600,
           color: AppColors.secondayColor,
         ),
-        hintText: hintText,
-        hintStyle: GoogleFonts.inter(
-          fontSize: 14,
-          fontWeight: FontWeight.w600,
-          color: AppColors.secondayColor,
-        ),
+
         prefixIcon: Icon(prefixIcon, color: AppColors.secondayColor),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
