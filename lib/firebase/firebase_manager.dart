@@ -44,7 +44,8 @@ class FirebaseManager {
         email: email,
         age: age,
       );
-      addUser(user);
+      credential.user!.sendEmailVerification();
+      await addUser(user);
       onSuccess();
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -57,6 +58,31 @@ class FirebaseManager {
     } catch (e) {
       log(e.toString());
       onError("SomeThing Went Wrong");
+    }
+  }
+
+  static Future<void> login({
+    required String email,
+    required String password,
+    required Function() onLoading,
+    required Function() onSuccess,
+    required Function(String message) onError,
+  }) async {
+    try {
+      onLoading();
+      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      if (credential.user!.emailVerified) {
+        onSuccess();
+      } else {
+        onError("Email is not verified, Please check your mail and verify");
+      }
+    } on FirebaseAuthException catch (e) {
+      onError("Email or password is not valid");
+    } catch (e) {
+      onError(e.toString());
     }
   }
 }
