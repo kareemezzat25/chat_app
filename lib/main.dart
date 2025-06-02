@@ -24,7 +24,7 @@ class ChatApp extends StatelessWidget {
         SignUpView.routeName: (context) => SignUpView(),
         ChatView.routeName: (context) => ChatView(),
       },
-      initialRoute: LoginView.routeName,
+      initialRoute: ChatView.routeName,
     );
   }
 }
