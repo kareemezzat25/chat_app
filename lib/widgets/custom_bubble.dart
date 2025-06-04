@@ -4,7 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class CustomBubble extends StatelessWidget {
   bool isLeft;
-  CustomBubble({required this.isLeft, super.key});
+  String message;
+  CustomBubble({required this.isLeft, required this.message, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class CustomBubble extends StatelessWidget {
                 ),
         ),
         child: Text(
-          "Hello my Friend",
+          message,
           style: GoogleFonts.inter(
             fontSize: 16,
             fontWeight: FontWeight.w400,
