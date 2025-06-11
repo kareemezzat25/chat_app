@@ -4,6 +4,7 @@ import 'package:chat_app/models/message_model.dart';
 import 'package:chat_app/widgets/custom_bubble.dart';
 import 'package:chat_app/widgets/custom_textfield_chat.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -68,7 +69,9 @@ class ChatView extends StatelessWidget {
                       return CustomBubble(
                         message:
                             snapshot.data?.docs[index].data().message ?? "",
-                        isLeft: index.isEven,
+                        isUser:
+                            snapshot.data?.docs[index].data().userId !=
+                            FirebaseAuth.instance.currentUser!.uid,
                       );
                     },
                     itemCount: snapshot.data?.docs.length ?? 0,

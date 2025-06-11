@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomBubble extends StatelessWidget {
-  bool isLeft;
+  bool isUser;
   String message;
-  CustomBubble({required this.isLeft, required this.message, super.key});
+  CustomBubble({required this.isUser, required this.message, super.key});
 
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: isLeft ? Alignment.topLeft : Alignment.topRight,
+      alignment: isUser ? Alignment.topLeft : Alignment.topRight,
       child: Container(
         padding: EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: isLeft ? AppColors.primaryColor : Colors.blue[700],
-          borderRadius: isLeft
+          color: isUser ? AppColors.primaryColor : Colors.blue[700],
+          borderRadius: isUser
               ? BorderRadius.only(
                   topLeft: Radius.circular(16),
                   topRight: Radius.circular(16),

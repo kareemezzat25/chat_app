@@ -8,6 +8,17 @@ import 'package:flutter/material.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  ErrorWidget.builder = (FlutterErrorDetails details) {
+    return Material(
+      color: Colors.red,
+      child: Center(
+        child: Text(
+          'Error: ${details.exceptionAsString()}',
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
+    );
+  };
   runApp(const ChatApp());
 }
 
@@ -18,13 +29,12 @@ class ChatApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(),
       routes: {
         LoginView.routeName: (context) => LoginView(),
         SignUpView.routeName: (context) => SignUpView(),
         ChatView.routeName: (context) => ChatView(),
       },
-      initialRoute: ChatView.routeName,
+      initialRoute: LoginView.routeName,
     );
   }
 }

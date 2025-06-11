@@ -5,11 +5,14 @@ import 'package:google_fonts/google_fonts.dart';
 class CustomTextField extends StatelessWidget {
   String labelText;
   TextEditingController controller;
+  bool? isobscure;
   IconData prefixIcon;
+
   CustomTextField({
     super.key,
     required this.labelText,
     required this.controller,
+    this.isobscure = false,
     required this.prefixIcon,
   });
 
@@ -50,6 +53,8 @@ class CustomTextField extends StatelessWidget {
         color: AppColors.secondayColor,
       ),
       controller: controller,
+      obscureText: isobscure!,
+
       decoration: InputDecoration(
         labelText: labelText,
         labelStyle: GoogleFonts.inter(
